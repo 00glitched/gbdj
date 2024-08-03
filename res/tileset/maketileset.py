@@ -17,7 +17,7 @@ for i in list:
     elif (tiles_Len > 128):
         print("Warning: your tileset is big")
     if (maketileset == 1):
-        tileset = "\nconst uint8_t "+i+"_tileset[][] =\n{\n"
+        tileset = "\nconst uint8_t "+i+"_tileset[] =\n{\n"
         for b in range(y_max):
             for a in range(x_max):
                 for m in range(8):
