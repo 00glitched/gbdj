@@ -1,5 +1,4 @@
-#include <stdint.h>
-#include <stdio.h>
+
 const uint8_t test_tileset[] =
 {
 0b00000000,0b00000000,0b00000000,0b00000000,0b00000000,0b00000000,0b00000000,0b00000001,

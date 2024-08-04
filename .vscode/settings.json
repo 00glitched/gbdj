@@ -4,5 +4,8 @@
         "stdint.h": "c",
         "stdio.h": "c",
         "test_tileset.h": "c"
-    }
+    },
+    "python.analysis.extraPaths": [
+        "./res/tileset"
+    ]
 }
