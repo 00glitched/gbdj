@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "gb.h": "c"
+        "gb.h": "c",
+        "stdint.h": "c",
+        "stdio.h": "c",
+        "test_tileset.h": "c"
     }
 }

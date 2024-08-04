@@ -21,31 +21,33 @@ for i in list:
         for b in range(y_max):
             for a in range(x_max):
                 for m in range(8):
-                    tile = "0x"
+                    byteA = "0b"
+                    byteB = "0b"
                     for n in range(8):
                         RGB = pixel[a*8+n+0,b*8+m]
                         R = RGB[0]
                         G = RGB[1]
                         B = RGB[2]
                         prom = (R+G+B)/3
-                        if (n == 4):
-                            tile += ",0x"
                         if (prom > 3*255/4):
-                            tile += "11"
+                            byteA += "0"
+                            byteB += "0"
                         elif (prom > 255/2):
-                            tile += "10"
+                            byteA += "0"
+                            byteB += "0"
                         elif (prom > 255/4):
-                            tile += "01"
+                            byteA += "0"
+                            byteB += "1"
                         else:
-                            tile += "00"
-                    tileset += tile+","
+                            byteA += "1"
+                            byteB += "1"
+                    tileset += byteA+","+byteB+","
                     if (m == 3):
                         tileset += "\n"
                 tileset += "\n"
         tileset_Len = len(tileset)
         tileset = tileset[0:tileset_Len-2]
-        tileset += "\n};"+"\nconst uint8_t "+i+"_tileset_Len = "+str(tiles_Len-1)+";\n"
-        #print(tileset)
+        tileset += "\n};"#+"\nconst uint8_t "+i+"_tileset_Len = "+str(tiles_Len-1)+";\n"
         IMGtoC = open (cfilePath, mode = "w")
         IMGtoC.write(tileset)
         IMGtoC.close()

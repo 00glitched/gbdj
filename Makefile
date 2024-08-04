@@ -1,3 +1,4 @@
+
 #
 # A Makefile that compiles all .c and .s files in "src" and "res" 
 # subdirectories and places the output in a "obj" subdirectory
