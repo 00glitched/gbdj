@@ -46,7 +46,7 @@
 ; code
 ;--------------------------------------------------------
 	.area _CODE
-;src/main.c:6: void setBkg (void) { set_bkg_data (0, 0u, test_tileset); }
+;src/main.c:8: void setBkg (void) { set_bkg_data (0, 0u, test_tileset); }
 ;	---------------------------------
 ; Function setBkg
 ; ---------------------------------
@@ -316,7 +316,7 @@ _test_tileset:
 	.db #0xff	; 255
 	.db #0xff	; 255
 	.db #0xff	; 255
-;src/main.c:8: void printTest (uint8_t len_x, uint8_t len_y)
+;src/main.c:10: void printTest (uint8_t len_x, uint8_t len_y)
 ;	---------------------------------
 ; Function printTest
 ; ---------------------------------
@@ -325,9 +325,9 @@ _printTest::
 	ldhl	sp,	#1
 	ld	(hl-), a
 	ld	(hl), e
-;src/main.c:10: uint8_t k=0;
+;src/main.c:12: uint8_t k=0;
 	ldhl	sp,	#4
-;src/main.c:11: for (uint8_t j=0; j<len_y; j++)
+;src/main.c:13: for (uint8_t j=0; j<len_y; j++)
 	xor	a, a
 	ld	(hl-), a
 	dec	hl
@@ -338,7 +338,7 @@ _printTest::
 	dec	hl
 	sub	a, (hl)
 	jr	NC, 00109$
-;src/main.c:13: for (uint8_t i=0; i<len_x; i++)
+;src/main.c:15: for (uint8_t i=0; i<len_x; i++)
 	ldhl	sp,	#4
 	ld	a, (hl-)
 	ld	(hl+), a
@@ -349,7 +349,7 @@ _printTest::
 	ldhl	sp,	#1
 	sub	a, (hl)
 	jr	NC, 00115$
-;src/main.c:15: set_bkg_tile_xy (i, j, k);k++;
+;src/main.c:17: set_bkg_tile_xy (i, j, k);k++;
 	inc	hl
 	inc	hl
 	ld	a, (hl-)
@@ -362,47 +362,47 @@ _printTest::
 	call	_set_bkg_tile_xy
 	ldhl	sp,	#3
 	inc	(hl)
-;src/main.c:13: for (uint8_t i=0; i<len_x; i++)
+;src/main.c:15: for (uint8_t i=0; i<len_x; i++)
 	inc	hl
 	inc	(hl)
 	jr	00104$
 00115$:
 	ldhl	sp,	#3
 	ld	a, (hl+)
-;src/main.c:11: for (uint8_t j=0; j<len_y; j++)
+;src/main.c:13: for (uint8_t j=0; j<len_y; j++)
 	ld	(hl-), a
 	dec	hl
 	inc	(hl)
 	jr	00107$
 00109$:
-;src/main.c:18: }
+;src/main.c:20: }
 	add	sp, #5
 	ret
-;src/main.c:21: void main(void)
+;src/main.c:23: void main(void)
 ;	---------------------------------
 ; Function main
 ; ---------------------------------
 _main::
-;src/main.c:23: setBkg();
+;src/main.c:25: setBkg();
 	call	_setBkg
-;src/main.c:25: while(TRUE) //loop
+;src/main.c:27: while(TRUE) //loop
 00102$:
-;src/main.c:27: printTest(4,4);
+;src/main.c:29: printTest(4,4);
 	ld	a,#0x04
 	ld	e,a
 	call	_printTest
-;src/main.c:28: SHOW_BKG;
+;src/main.c:30: SHOW_BKG;
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x01
 	ldh	(_LCDC_REG + 0), a
-;src/main.c:29: DISPLAY_ON;
+;src/main.c:31: DISPLAY_ON;
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x80
 	ldh	(_LCDC_REG + 0), a
-;src/main.c:30: delay(500);
+;src/main.c:32: delay(500);
 	ld	de, #0x01f4
 	call	_delay
-;src/main.c:32: }
+;src/main.c:34: }
 	jr	00102$
 	.area _CODE
 	.area _INITIALIZER

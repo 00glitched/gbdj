@@ -46,7 +46,7 @@
                                      46 ; code
                                      47 ;--------------------------------------------------------
                                      48 	.area _CODE
-                                     49 ;src/main.c:6: void setBkg (void) { set_bkg_data (0, 0u, test_tileset); }
+                                     49 ;src/main.c:8: void setBkg (void) { set_bkg_data (0, 0u, test_tileset); }
                                      50 ;	---------------------------------
                                      51 ; Function setBkg
                                      52 ; ---------------------------------
@@ -316,7 +316,7 @@
     0000010A FF                     316 	.db #0xff	; 255
     0000010B FF                     317 	.db #0xff	; 255
     0000010C FF                     318 	.db #0xff	; 255
-                                    319 ;src/main.c:8: void printTest (uint8_t len_x, uint8_t len_y)
+                                    319 ;src/main.c:10: void printTest (uint8_t len_x, uint8_t len_y)
                                     320 ;	---------------------------------
                                     321 ; Function printTest
                                     322 ; ---------------------------------
@@ -325,9 +325,9 @@
     0000010F F8 01            [12]  325 	ldhl	sp,	#1
     00000111 32               [ 8]  326 	ld	(hl-), a
     00000112 73               [ 8]  327 	ld	(hl), e
-                                    328 ;src/main.c:10: uint8_t k=0;
+                                    328 ;src/main.c:12: uint8_t k=0;
     00000113 F8 04            [12]  329 	ldhl	sp,	#4
-                                    330 ;src/main.c:11: for (uint8_t j=0; j<len_y; j++)
+                                    330 ;src/main.c:13: for (uint8_t j=0; j<len_y; j++)
     00000115 AF               [ 4]  331 	xor	a, a
     00000116 32               [ 8]  332 	ld	(hl-), a
     00000117 2B               [ 8]  333 	dec	hl
@@ -338,7 +338,7 @@
     0000011D 2B               [ 8]  338 	dec	hl
     0000011E 96               [ 8]  339 	sub	a, (hl)
     0000011F 30 29            [12]  340 	jr	NC, 00109$
-                                    341 ;src/main.c:13: for (uint8_t i=0; i<len_x; i++)
+                                    341 ;src/main.c:15: for (uint8_t i=0; i<len_x; i++)
     00000121 F8 04            [12]  342 	ldhl	sp,	#4
     00000123 3A               [ 8]  343 	ld	a, (hl-)
     00000124 22               [ 8]  344 	ld	(hl+), a
@@ -349,7 +349,7 @@
     0000012A F8 01            [12]  349 	ldhl	sp,	#1
     0000012C 96               [ 8]  350 	sub	a, (hl)
     0000012D 30 13            [12]  351 	jr	NC, 00115$
-                                    352 ;src/main.c:15: set_bkg_tile_xy (i, j, k);k++;
+                                    352 ;src/main.c:17: set_bkg_tile_xy (i, j, k);k++;
     0000012F 23               [ 8]  353 	inc	hl
     00000130 23               [ 8]  354 	inc	hl
     00000131 3A               [ 8]  355 	ld	a, (hl-)
@@ -362,47 +362,47 @@
     00000138 CDr00r00         [24]  362 	call	_set_bkg_tile_xy
     0000013B F8 03            [12]  363 	ldhl	sp,	#3
     0000013D 34               [12]  364 	inc	(hl)
-                                    365 ;src/main.c:13: for (uint8_t i=0; i<len_x; i++)
+                                    365 ;src/main.c:15: for (uint8_t i=0; i<len_x; i++)
     0000013E 23               [ 8]  366 	inc	hl
     0000013F 34               [12]  367 	inc	(hl)
     00000140 18 E5            [12]  368 	jr	00104$
     00000142                        369 00115$:
     00000142 F8 03            [12]  370 	ldhl	sp,	#3
     00000144 2A               [ 8]  371 	ld	a, (hl+)
-                                    372 ;src/main.c:11: for (uint8_t j=0; j<len_y; j++)
+                                    372 ;src/main.c:13: for (uint8_t j=0; j<len_y; j++)
     00000145 32               [ 8]  373 	ld	(hl-), a
     00000146 2B               [ 8]  374 	dec	hl
     00000147 34               [12]  375 	inc	(hl)
     00000148 18 D0            [12]  376 	jr	00107$
     0000014A                        377 00109$:
-                                    378 ;src/main.c:18: }
+                                    378 ;src/main.c:20: }
     0000014A E8 05            [16]  379 	add	sp, #5
     0000014C C9               [16]  380 	ret
-                                    381 ;src/main.c:21: void main(void)
+                                    381 ;src/main.c:23: void main(void)
                                     382 ;	---------------------------------
                                     383 ; Function main
                                     384 ; ---------------------------------
     0000014D                        385 _main::
-                                    386 ;src/main.c:23: setBkg();
+                                    386 ;src/main.c:25: setBkg();
     0000014D CDr00r00         [24]  387 	call	_setBkg
-                                    388 ;src/main.c:25: while(TRUE) //loop
+                                    388 ;src/main.c:27: while(TRUE) //loop
     00000150                        389 00102$:
-                                    390 ;src/main.c:27: printTest(4,4);
+                                    390 ;src/main.c:29: printTest(4,4);
     00000150 3E 04            [ 8]  391 	ld	a,#0x04
     00000152 5F               [ 4]  392 	ld	e,a
     00000153 CDr0Dr01         [24]  393 	call	_printTest
-                                    394 ;src/main.c:28: SHOW_BKG;
+                                    394 ;src/main.c:30: SHOW_BKG;
     00000156 F0r00            [12]  395 	ldh	a, (_LCDC_REG + 0)
     00000158 F6 01            [ 8]  396 	or	a, #0x01
     0000015A E0r00            [12]  397 	ldh	(_LCDC_REG + 0), a
-                                    398 ;src/main.c:29: DISPLAY_ON;
+                                    398 ;src/main.c:31: DISPLAY_ON;
     0000015C F0r00            [12]  399 	ldh	a, (_LCDC_REG + 0)
     0000015E F6 80            [ 8]  400 	or	a, #0x80
     00000160 E0r00            [12]  401 	ldh	(_LCDC_REG + 0), a
-                                    402 ;src/main.c:30: delay(500);
+                                    402 ;src/main.c:32: delay(500);
     00000162 11 F4 01         [12]  403 	ld	de, #0x01f4
     00000165 CDr00r00         [24]  404 	call	_delay
-                                    405 ;src/main.c:32: }
+                                    405 ;src/main.c:34: }
     00000168 18 E6            [12]  406 	jr	00102$
                                     407 	.area _CODE
                                     408 	.area _INITIALIZER
