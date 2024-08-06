@@ -1,2 +1,5 @@
 /.vscode
 /gbdk
+/res/tileset/__pycache__
+/res/tilemap/__pycache__
+/res/sample/__pycache__
