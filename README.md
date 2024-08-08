@@ -1,8 +1,8 @@
 # GBDJ
 The idea of the project is make an audio editor to play tunes in gameboy.
 
-## Dependences
-- Python modules: ```wave```, ```pil```
+## Dependencies
+- Py: ```wave```, ```pil```, ```pyboy```
 - C: ```gbdk```
 
 ## How to compile
@@ -10,4 +10,4 @@ The idea of the project is make an audio editor to play tunes in gameboy.
 2) Use ```make``` command from cmake or cmake-gui
 
 ## How to run
-- Open ```GBDJ.gb``` with gameboy emulator or put into cartridge
+- Open ```GBDJ.gb``` with gameboy emulator, put into cartridge or run with ```run.py```
