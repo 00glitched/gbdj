@@ -1,0 +1,10 @@
+{
+    "C_Cpp.errorSquiggles": "enabledIfIncludesResolve",
+    "files.associations": {
+        "stdint.h": "c",
+        "gb.h": "c",
+        "tileset.h": "c",
+        "bkggraphlib.h": "c",
+        "stdio.h": "c"
+    }
+}

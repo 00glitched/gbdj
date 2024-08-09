@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/home/glitch00/Documentos/gbdk/include/",
+                "/home/glitch00/Documentos/gbdk/examples/gb/bkgGraphLibForGBDK/"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64",
+            "compilerArgs": []
+        }
+    ],
+    "version": 4
+}
