@@ -2,7 +2,10 @@
 #include <stdio.h>
 #include <gb/gb.h>
 
-//My files
+//source
+#include "../src/screen.c"
+
+//media
 #include "../res/tileset/c/Ascii.c"
 
 void setBkg (void) { set_bkg_data (0, 0u, Ascii_tileset); }
