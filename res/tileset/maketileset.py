@@ -50,7 +50,7 @@ def IMAGE_TO_C(path,list):
                     tileset += "\n"
             tileset_Len = len(tileset)
             tileset = tileset[0:tileset_Len-2]
-            tileset += "\n};"#+"\nconst uint8_t "+i+"_tileset_Len = "+str(tiles_Len-1)+";\n"
+            tileset += "\n};"+"\nconst uint16_t "+i+"_tileset_Len = "+str(16*tiles_Len)+";\n"
             IMGtoC = open (cfilePath, mode = "w")
             IMGtoC.write(tileset)
             IMGtoC.close()

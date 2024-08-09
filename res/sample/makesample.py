@@ -40,7 +40,7 @@ def WAV_TO_C(path,list):
                     t=t+1
             framestr_Len = len(framestr)
             framestr = framestr[0:framestr_Len-1]
-            framestr += "\n};"+"\nconst uint8_t "+i+"_sample_Len = "+str(framestr_Len-1)+";\n"
+            framestr += "\n};"+"\nconst uint16_t "+i+"_sample_Len = "+str(t)+";\n"
             
             sound.close()
             

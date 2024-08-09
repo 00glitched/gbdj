@@ -3,9 +3,9 @@
 #include <gb/gb.h>
 
 //My files
-#include "../res/tileset/c/test.c"
+#include "../res/tileset/c/Ascii.c"
 
-void setBkg (void) { set_bkg_data (0, 0u, test_tileset); }
+void setBkg (void) { set_bkg_data (0, 0u, Ascii_tileset); }
 
 void printTest (uint8_t len_x, uint8_t len_y)
     {
@@ -26,7 +26,7 @@ void main(void)
         uint8_t t=0;
         while(TRUE) //loop
             {
-                printTest(4,4);
+                printTest(8,8);
                 SHOW_BKG;
                 DISPLAY_ON;
                 delay(500);
