@@ -2,13 +2,12 @@
 #include <stdio.h>
 #include <gb/gb.h>
 
-//source
-#include "../src/screen.c"
-
 //media
-#include "../res/tileset/c/Ascii.c"
+//#include "../res/tileset/c/test.c"
 
-void setBkg (void) { set_bkg_data (0, 0u, Ascii_tileset); }
+//source
+#include "../src/screen.h"
+
 
 void printTest (uint8_t len_x, uint8_t len_y)
     {
@@ -22,14 +21,23 @@ void printTest (uint8_t len_x, uint8_t len_y)
             }
     }
 
+uint8_t MyMat[4][4]=
+    {
+        {1,0,0,0},
+        {0,1,0,0},
+        {0,0,1,0},
+        {0,0,0,1}
+    };
+
 
 void main(void)
     {
         setBkg();
+        setBlank(47);
         uint8_t t=0;
         while(TRUE) //loop
             {
-                printTest(8,8);
+                printMatrix(6,6,4,4,&MyMat[0][0]);
                 SHOW_BKG;
                 DISPLAY_ON;
                 delay(500);
