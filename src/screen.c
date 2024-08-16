@@ -22,17 +22,37 @@ void setBlank(uint8_t tile)
                     }
             }
     }
-
-void printMatrix (uint8_t x_pos, uint8_t y_pos, uint8_t x_len, uint8_t y_len, uint8_t *arr)
+void printTile(uint8_t x_pos, uint8_t y_pos, uint8_t x_len, uint8_t y_len, uint8_t tile)
     {
         for (uint8_t j = 0; j < y_len; j++)
             {
                 for (uint8_t i = 0; i < x_len; i++)
                     {
-                        uint8_t k = *(arr + j * y_len + i);
-                        set_bkg_tile_xy (i + x_pos, j + y_pos, k);
+                        set_bkg_tile_xy (i+x_pos, j+y_pos, tile);
+                    }
+            }
+    }
+
+void printMatr (uint8_t x_pos, uint8_t y_pos, uint8_t x_len, uint8_t y_len, uint8_t *arr)
+    {
+        for (uint8_t j = 0; j < y_len; j++)
+            {
+                for (uint8_t i = 0; i < x_len; i++)
+                    {
+                        uint8_t T = *(arr + j * y_len + i);
+                        set_bkg_tile_xy (i + x_pos, j + y_pos, T);
                     }
             }   
+    }
+
+void printFunc (uint8_t x_pos, uint8_t y_pos, uint8_t x_len, uint8_t *arrY, uint8_t *arrT)
+    {
+        for (uint8_t i = 0; i < x_len; i++)
+        {
+            uint8_t j = *(arrY + i);
+            uint8_t T = *(arrT + i);
+            set_bkg_tile_xy (i + x_pos, j + y_pos, T);
+        }
     }
 
 /*
@@ -49,11 +69,11 @@ void printFunc (uint8_t x_pos, uint8_t y_pos, uint8_t x_len, uint8_t y_len, uint
 
                 break;
 
-                case 'a': //y(x), tile(arr)
+                case 'a': //y(x), tile = arr[x]
                     set_bkg_tile_xy (0,0,2);
                 break;
 
-                case 'b': //x(y), tile(arr)
+                case 'b': //x(y), tile = (arr[y]
                    set_bkg_tile_xy (0,0,2);
                 break;
 

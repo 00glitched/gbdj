@@ -2,7 +2,6 @@ import os
 from res.tileset.maketileset import IMAGE_TO_C
 from res.sample.makesample import WAV_TO_C
 
-
 myPath = os.path.dirname(os.path.abspath(__file__))
 
 #for tileset

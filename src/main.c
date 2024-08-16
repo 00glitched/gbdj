@@ -9,37 +9,38 @@
 #include "../src/screen.h"
 
 
-void printTest (uint8_t len_x, uint8_t len_y)
-    {
-        uint8_t k=0;
-        for (uint8_t j=0; j<len_y; j++)
-            {
-                for (uint8_t i=0; i<len_x; i++)
-                    {
-                        set_bkg_tile_xy (i, j, k);k++;
-                    }
-            }
-    }
-
 uint8_t MyMat[4][4]=
     {
         {1,0,0,0},
-        {0,1,0,0},
-        {0,0,1,0},
-        {0,0,0,1}
+        {0,2,0,0},
+        {0,0,3,0},
+        {0,0,0,4}
     };
 
+uint8_t MyMat1[4]= {1,0,0,0};
+uint8_t MyMat2[4]= {2,2,2,5};
+uint32_t counter_fps = 0;
+const uint8_t delay_fps = 12;
 
 void main(void)
     {
         setBkg();
         setBlank(47);
         uint8_t t=0;
+        uint8_t Xi=0;
         while(TRUE) //loop
             {
-                printMatrix(6,6,4,4,&MyMat[0][0]);
-                SHOW_BKG;
-                DISPLAY_ON;
-                delay(500);
+                
+                uint32_t CLK = sys_time;
+                if (counter_fps < CLK)
+                    {
+                        printTile (Xi-1, 6, 4, 4, 47);
+                        printFunc (Xi, 6, 4, &MyMat1[0], &MyMat2[0]);
+                        SHOW_BKG;
+                        DISPLAY_ON;
+                        Xi++;
+                        if (Xi>6){Xi=0;}
+                        counter_fps+=delay_fps;
+                    }
             }
     }
