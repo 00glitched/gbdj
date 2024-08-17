@@ -54,29 +54,3 @@ void printFunc (uint8_t x_pos, uint8_t y_pos, uint8_t x_len, uint8_t *arrY, uint
             set_bkg_tile_xy (i + x_pos, j + y_pos, T);
         }
     }
-
-/*
-void printFunc (uint8_t x_pos, uint8_t y_pos, uint8_t x_len, uint8_t y_len, uint8_t arr, uint8_t mode)
-    {
-        switch (mode)
-            {
-                case 'y': //y(x), tile: const
-                    set_bkg_tile_xy (0,0,2);
-                break;
-
-                case 'x': //x(y), tile: const
-                    set_bkg_tile_xy (0,0,2);
-
-                break;
-
-                case 'a': //y(x), tile = arr[x]
-                    set_bkg_tile_xy (0,0,2);
-                break;
-
-                case 'b': //x(y), tile = (arr[y]
-                   set_bkg_tile_xy (0,0,2);
-                break;
-
-            }
-    }
-*/
