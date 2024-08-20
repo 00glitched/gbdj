@@ -1,0 +1,1 @@
+void initFunc(void);

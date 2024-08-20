@@ -12,6 +12,12 @@ void setBkg (void)
         set_bkg_data (0, 0u, test_tileset);
     }
 
+void dispBkg (void)
+    {
+        SHOW_BKG;
+        DISPLAY_ON;
+    }
+
 void setBlank(uint8_t tile)
     {
         for (uint8_t j = 0; j < SCREEN_TILE_LEN_Y; j++)

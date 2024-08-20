@@ -25,7 +25,7 @@ const uint8_t freq[8][2]=
 const uint16_t freq1[9] = {73,73,87,110,73,73,87,110,880};
 
 
-void audio_global_process (uint8_t muteall, uint8_t left, uint8_t right)
+void audioProcessGlobal (uint8_t muteall, uint8_t left, uint8_t right)
     {
         
         if (muteall == 0)
@@ -46,7 +46,7 @@ void audio_global_process (uint8_t muteall, uint8_t left, uint8_t right)
             }
     }
 
-void audio_process (uint8_t c1n, uint8_t c1b0, uint8_t c1b1, uint8_t c1b2, uint8_t c2n, uint8_t c2b1, uint8_t c2b2)
+void audioProcessChanns (uint8_t c1n, uint8_t c1b0, uint8_t c1b1, uint8_t c1b2, uint8_t c2n, uint8_t c2b1, uint8_t c2b2)
     {
                 // -- step 0 --
                 // toggle chann1 off L+R
@@ -89,7 +89,7 @@ void audio_process (uint8_t c1n, uint8_t c1b0, uint8_t c1b1, uint8_t c1b2, uint8
                 //NR51_REG = NR51_REG & 0b11111111;
     }
 
-void audio_play (uint8_t ch1, uint8_t ch2, uint8_t ch3, uint8_t ch4)
+void audioPlayallChanns (uint8_t ch1, uint8_t ch2, uint8_t ch3, uint8_t ch4)
     {
         //assing L+R to play sound
         NR51_REG = (ch1 & 0b00000011) << 6 | (ch2 & 0b00000011) << 4 | (ch3 & 0b00000011) << 2 | (ch4 & 0b00000011);
