@@ -1,0 +1,3 @@
+void audio_global_process (uint8_t muteall, uint8_t left, uint8_t right);
+void audio_process (uint8_t c1n, uint8_t c1b0, uint8_t c1b1, uint8_t c1b2, uint8_t c2n, uint8_t c2b1, uint8_t c2b2);
+void audio_play (uint8_t ch1, uint8_t ch2, uint8_t ch3, uint8_t ch4);
