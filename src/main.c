@@ -32,7 +32,7 @@ void main(void)
 
                 if (counter_bpm < CLK)
                     {
-                        //soundCtrl();
+                        soundCtrl();
 
                         counter_bpm += delay_bpm;
                     }
