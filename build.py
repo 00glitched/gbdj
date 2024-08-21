@@ -1,8 +1,19 @@
 import os
+import shutil
 from res.tileset.maketileset import IMAGE_TO_C
 from res.sample.makesample import WAV_TO_C
 
 myPath = os.path.dirname(os.path.abspath(__file__))
+
+#for include
+folder_cont = os.listdir(myPath+"/res/include")
+for i in folder_cont:
+    try:
+        print("Copying "+i+" to /src:")
+        shutil.copyfile(myPath+"/res/include/"+i,myPath+"/src/"+i)
+        print(" OK.\n")
+    except:
+        pass
 
 #for tileset
 tileset_list = ["test","Ascii"]
