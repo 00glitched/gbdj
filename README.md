@@ -6,7 +6,7 @@ The idea of the project is make an audio editor to play tunes in gameboy.
 - C: ```gbdk-2020```
 
 ## How to compile
-1) Run ```.py``` files with ```build.py``` to convert media files to ```.c```
+1) Run ```.py``` files with ```build.py``` to convert media files into ```.c```
 2) Use ```make``` command from cmake or cmake-gui
 
 ## How to run
