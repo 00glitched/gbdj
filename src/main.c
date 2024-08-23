@@ -10,6 +10,14 @@
 #include "../src/soundCtrl.h"
 #include "../src/init.h"
 
+struct coord
+    {
+        uint8_t x;  //x pos
+        uint8_t y;  //y pos
+        uint8_t m;  //menu
+        uint8_t n;  //submenu
+    };
+
 
 //time vars
 uint32_t counter_bpm = 0;
@@ -25,6 +33,9 @@ const uint8_t delay_fps = 40;
 void main(void)
     {
         initFunc();
+
+        //struct coord pivot;
+        
                         
         while(TRUE) //loop
             {
@@ -46,7 +57,7 @@ void main(void)
                 if (counter_fps < CLK)
                     {   
                         intrfCtrl();
-                        //input_ctrl();
+                        //pivot = inputCtrl(pivot.x,pivot.y,pivot.m,pivot.n);
                         
                         counter_fps += delay_fps;
                     }

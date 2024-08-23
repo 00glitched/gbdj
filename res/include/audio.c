@@ -27,7 +27,7 @@ void audioProcessGlobal (uint8_t muteall, uint8_t left, uint8_t right)
             }
         if (left < 8 && right < 8)
             {
-                NR50_REG = left << 4 + right;
+                NR50_REG = left << 4 | right;
             } 
         else
             {

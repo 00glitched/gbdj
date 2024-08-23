@@ -16,7 +16,7 @@ for i in folder_cont:
         pass
 
 #for tileset
-tileset_list = ["test","Ascii"]
+tileset_list = ["test"]
 #exec (open (myPath+"/res/tileset/maketileset.py").read())
 IMAGE_TO_C(myPath+"/res/tileset",tileset_list)
 

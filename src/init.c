@@ -9,5 +9,5 @@ void initFunc(void)
     {
         setBkg();
         setBlank(0x2F);
-        audioProcessGlobal(0x0,0x7,0x7);
+        audioProcessGlobal(0x0,0x0F,0x0F);
     }
