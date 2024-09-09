@@ -1,4 +1,4 @@
-python build.py
+python import.py
 make
 python rm.py
 python run.py
